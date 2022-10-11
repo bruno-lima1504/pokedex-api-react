@@ -1,16 +1,51 @@
 import './App.css';
-import  React  from 'react';
-import { Pokemoncaraio } from './components/card/card';
+import React, { useEffect, useState } from 'react';
+import { SearchBar } from './components/searchbar/searchbar';
+import { Navbar } from './components/navbar/navbar';
+import { Pokedex } from './components/pokedex/pokedex';
+import styled from 'styled-components';
+import { getPokemons, searchPokemons } from './api-podedex';
 
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  const [pokemons, setPokemons] = useState ([]);
+
+  const cathLinks = async () => {
+    setLoading(true)
+    const data = await searchPokemons();
+    const promises = data.results.map( async (pokemon) => {
+        
+      return await getPokemons(pokemon.url)
+    });
+    
+   const results = await Promise.all(promises);
+   setPokemons(results);        
+   setLoading(false);      
+  } 
+  
+  useEffect(() => {
+    cathLinks();    
+  }, [])      
+  
   return (
-    <div>
-    <h1>ola</h1>
-    <Pokemoncaraio />
-    </div>   
-   
+      
+  <div>
+      <Navbar />
+      <ContentContainer>
+        <SearchBar />               
+        <Pokedex pokemon={pokemons} loading={loading}/>
+      </ContentContainer> 
+      
+  </div>
+
   );
 }
 
 export default App;
+
+
+const ContentContainer = styled.div`
+`
+
+
