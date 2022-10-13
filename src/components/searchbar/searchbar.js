@@ -6,8 +6,9 @@ const SearchBar = () => {
 
     const [search, setSearch] = useState("bulbasaur")
     const [pokemon, setPokemon] = useState()   
-    const onChangeHandler = (e) => {        
-        setSearch(e.target.value)        
+    const onChangeHandler = (e) => {
+        let pokeValue = e.target.value.toLowerCase()        
+        setSearch(pokeValue)        
     } 
 
     const onButtonClickHandler = () => {
