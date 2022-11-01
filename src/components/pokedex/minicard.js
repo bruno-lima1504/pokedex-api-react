@@ -5,11 +5,12 @@ import grass from './grass.jpg'
 
 const Minicard = ({pokemon}) => {
     
+       const type = pokemon.types[0].type.name
        
     return (   
-        // <MiniCardContainer background = {`$={pokemon.types[0].type.name}`}>     
-        <MiniCardContainer grass>
-            <Link to={`/details/${pokemon.name}`}>
+        <MiniCardContainer background = {type}>     
+        
+            <StyledLink to={`/details/${pokemon.name}`}>
                 <div>
                     <img src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default} alt={pokemon.name}></img>
                 </div>
@@ -23,7 +24,7 @@ const Minicard = ({pokemon}) => {
                         })}                    
                     </div>
                 </div> 
-            </Link>           
+            </StyledLink>           
         </MiniCardContainer>
     );
 };
@@ -31,10 +32,8 @@ const Minicard = ({pokemon}) => {
 export { Minicard }
 
 const MiniCardContainer = styled.main`
-    background-image: ${props => `url({${props.}})`};
     
-    /* background-image: url(${grass}); */
-
+    background-image: ${props => `url(${props.background}.jpg)`};
     background-position: center;
     background-size: cover;
     display: flex;
@@ -46,4 +45,25 @@ const MiniCardContainer = styled.main`
     border-radius: 8px;
     box-shadow: 2px 2px 2px #484d4d;
     margin: 10px;
-    padding: 10px;`
+    padding: 10px;
+    
+    div {
+        width: 50%;
+    }
+    
+    
+    
+    `
+
+const StyledLink = styled(Link) `
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    :visited {
+    color: #000;
+    }
+`   
