@@ -1,37 +1,26 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { searchPokemon } from "../../api.js";
+import { Link } from 'react-router-dom'
 
 const SearchBar = () => {  
 
     const [search, setSearch] = useState("bulbasaur")
-    const [pokemon, setPokemon] = useState()   
+       
     const onChangeHandler = (e) => {
-        let pokeValue = e.target.value.toLowerCase()        
-        setSearch(pokeValue)        
-    } 
-
-    const onButtonClickHandler = () => {
-        onSearchHandler(search)        
-    }
-
-    const onSearchHandler = async (pokemon) => {
-        const result = await searchPokemon(pokemon)
-        setPokemon(result)        
-    }     
+        let pokeName = e.target.value.toLowerCase()        
+        setSearch(pokeName)        
+    }   
+    
+    console.log(search)
       
     return (
         <SearchContainer>
             <input type="text" placeholder='Digite o pokemon' onChange={onChangeHandler}/>
 
-            <button onClick={onButtonClickHandler} >Procurar</button>
-            {pokemon ? (
-                <div>
-                    <div>Nome: {pokemon.name}</div>
-                    <div>Peso: {pokemon.weight}</div>
-                    <img src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default} alt={pokemon.name} />
-                </div>
-            ) : null }
+            <Link to={`/details/${search}`}>
+            <button>Procurar</button>
+            </Link>            
         </SearchContainer>
     )
 }

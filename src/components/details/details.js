@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { searchPokemon } from "../../api";
+import {Navbar} from '../navbar/navbar';
 
-const Pokemoncard = (props) => {
-    const {pokemon} = props;
-    console.log(pokemon)
+
+const Details = () => {    
+    const { name } = useParams();
+    const [pokemon, setPokemon] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            console.log(name)
+            const cathPokemon = async () => {
+            console.log(name)
+            const infos = await searchPokemon(name);
+
+            setPokemon(infos)
+            }
+            cathPokemon(name)
+        }     
+
+        fetchData()
+            
+    },[name]);        
+        
+
     return (
-        <CardContainer>
-            <div>
+        <>
+        <Navbar />
+        <PokemonDetails>            
+            {pokemon && (<div>
                 <img src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default} alt={pokemon.name}></img>
-            </div>
-            <div>
+                
+            </div>) }                      
+            
+            {pokemon && (<div>
                 <div>{pokemon.name}</div>
                 <div>
                     {pokemon.types.map((type, index) => {
@@ -29,14 +55,16 @@ const Pokemoncard = (props) => {
                             <div key={index}>{stat.stat.name} : {stat.base_stat}</div>
                         )
                     })}
-            </div>
-        </CardContainer>
+            </div>)}
+        </PokemonDetails>
+        </>
+
     )
 }
 
-export { Pokemoncard }
+export { Details }
 
-const CardContainer = styled.main`
+const PokemonDetails = styled.main`
     background-color: pink;
     display: flex;
     flex-direction: column;

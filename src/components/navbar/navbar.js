@@ -1,16 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <Nav>
             <div>
-            <img src="./logopoke.png" alt="PokéAPI" />
+                <img src="./logopoke.png" alt="PokeAPI" />
             </div>
-            <ul>
-                <li>Pokedex</li>
-                <li>Cards</li>
+            <ul>                
+                <StyledLink to="/pokedex"><li>Pokedex</li></StyledLink>              
                 <li>Super Trunfo</li>
             </ul>
         </Nav>
@@ -20,7 +19,7 @@ const Navbar = () => {
 export { Navbar }
 
 const Nav = styled.nav `
-    background-color: pink;
+    background-color: rgba(8,34,78,.9);
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -37,10 +36,27 @@ const Nav = styled.nav `
     }
 
     li {
-        background-color: yellow;
+        background-color: #0e6f9f;        
         margin: 20px;
         padding: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0,4s ease-in;
+        color: #FFF;
+        font-weight: 600;
+
+        :hover {
+            background-color: rgba(8,34,78,.9);
+        }
+    }    
+  
+`
+
+const StyledLink = styled(Link) `
+    text-decoration: none;
+
+    :visited {
+        color: #FFF;
     }
-
-
 `
