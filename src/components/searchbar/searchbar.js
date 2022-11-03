@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { searchPokemon } from "../../api.js";
 import { Link } from 'react-router-dom'
 
 const SearchBar = () => {  
@@ -10,10 +9,8 @@ const SearchBar = () => {
     const onChangeHandler = (e) => {
         let pokeName = e.target.value.toLowerCase()        
         setSearch(pokeName)        
-    }   
+    }    
     
-    console.log(search)
-      
     return (
         <SearchContainer>
             <input type="text" placeholder='Digite o pokemon' onChange={onChangeHandler}/>
