@@ -45,12 +45,10 @@ const Pokedex = () => {
         <> 
                 <Main background={theme.background} color={theme.color}>
                     <Navbar />
-                    <SearchBar />
-                    
+                    <SearchBar />                    
                     <div>
                         <h1>Pokedex</h1>
                     </div>
-
                     {pokemons.lenght > 0 ? (
                         <div>carregando</div>
                     ) : (
@@ -62,12 +60,9 @@ const Pokedex = () => {
                             })}
                         </ContainerPokedex>
                     )}
-
                     <Button text="ver mais" attPokemon={addPokemon} />
-
                     <Button text="ver menos" attPokemon={removePokemon} />
-                </Main>
-                            
+                </Main>                            
         </>
     )
 }
@@ -80,17 +75,19 @@ width: 100%;
     background-color: ${props => props.background};
     
     h1 {
-        font-size: 40px;
+        font-size: 60px;
         font-weight: 900;
         color: ${props => props.color};
     }
 `
-
-
 const ContainerPokedex = styled.div`
     display:grid;
-    grid-template-columns: repeat(auto-fit,4 , minmax(auto, 4fr));
-    gap: 15px;      
-    
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 0px 30px;
+
+    @media (max-width: 700px){
+        margin: 0px 10%;        
+    }    
 `
 

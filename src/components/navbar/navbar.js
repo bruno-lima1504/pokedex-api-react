@@ -20,9 +20,10 @@ const Navbar = () => {
                 <ul>
                     <StyledLink to="/"><li>Pokedex</li></StyledLink>
                     <li>Super Trunfo</li>
+                    <Button onClick={() => setTheme(theme === themes.light ? themes.dark : themes.light)}></Button>
                 </ul>
             </div>                    
-            <Button text="Dark-mode" onClick={() => setTheme(theme === themes.light ? themes.dark : themes.light)} >DarkMode</Button>
+            
         </Nav>
     )
 }
@@ -31,17 +32,19 @@ export { Navbar }
 
 const Nav = styled.nav `    
     background-color: rgba(8,34,78,.9);
-    height: 100px;
+    height: 180px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 40px;  
     align-items: center;
     box-sizing: border-box;
+    margin: 0 auto;
 
     @media (max-width: 700px){
      flex-direction: column;
      height: 100%;
+     padding: 20px;
     }
     img {
     
@@ -51,6 +54,8 @@ const Nav = styled.nav `
        list-style: none;
        display: flex;
        width: 100%;
+       align-items: center;
+       
     }
 
     li {
@@ -67,10 +72,13 @@ const Nav = styled.nav `
         :hover {
             background-color: rgba(8,34,78,.9);
         }
-    }    
+
+        @media (max-width: 700px){
+            margin: 10px;
+        }
+        }  
   
 `
-
 const StyledLink = styled(Link) `
     text-decoration: none;
 

@@ -5,14 +5,20 @@ export const themes = {
         color: '#000',
         background: '#eeeeee',
         border: '8px solid #ffd700',
-        boxshadow: '2px 2px 2px #484d4d'
+        boxshadow: '2px 2px 2px #484d4d',
+        backgroundbtn: '#0e6f9f',
+        colorBtn:'#fff',
+        btnText: 'Dark mode'
     },
 
     dark:{
         color: '#fff',
-        background: '#2e2e2e',        
+        background: '#2e2e2e',
+        backgroundbtn: '#eeeeee',        
         border: '8px solid #d5d5d5',
-        boxshadow: '2px 2px 2px #d5d5d5'
+        boxshadow: '1px 1px 10px #d5d5d5',
+        btnText: 'Ligth mode',
+        colorBtn:'#000',
     }
 }
 

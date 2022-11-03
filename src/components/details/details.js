@@ -13,9 +13,7 @@ const Details = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log(name)
             const cathPokemon = async () => {
-            console.log(name)
             const infos = await searchPokemon(name);
 
             setPokemon(infos)

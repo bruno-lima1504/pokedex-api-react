@@ -20,9 +20,9 @@ export {App};
 
 
 const GlobalStyle = createGlobalStyle`
-  font-family: 'Lato', sans-serif;
-  box-sizing: border-box;
-  width: 100%;
+   * {font-family: 'Lato', sans-serif;
+  box-sizing: border-box;  
+  padding: 0;}
     
 `
 

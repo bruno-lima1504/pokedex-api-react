@@ -47,9 +47,8 @@ const MiniCardContainer = styled.main`
     max-width: 350px;
     height: 250px;
     border-radius: 8px;
-    box-shadow: ${props => props.boxshadow};
-    margin: 10px;
-    padding: 10px;
+    box-shadow: ${props => props.boxshadow};    
+    padding: 10px;    
     `
 
 const StyledLink = styled(Link) `
@@ -85,20 +84,24 @@ const DivInfo = styled.div `
 
         img {
             width: 60%;
+            filter: drop-shadow(0 0 0.4rem #fff)
         }
 
         p {
             color: #000;
+
+            font-weight: 600;
             padding: 5px;
             width: 70%;
+            background: linear-gradient(18deg, rgba(143,143,143,0.927608543417367) 0%, rgba(255,255,255,0.8911939775910365) 100%);
+            border-radius: 10px;
+            box-shadow: 1px 1px 1px #000;
         }
 
     }
 
 
 
-    p {
-        background-color: #eeeeee;
-    }
+    
 
 `
