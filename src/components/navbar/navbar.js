@@ -3,17 +3,16 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { Button } from './buttonnavbar';
 import { ThemeContext, themes } from '../../contexts/theme-context';
+import logopoke from '../../assets/logopoke.png'
  
 const Navbar = () => {
     
-    const { theme, setTheme } = useContext(ThemeContext)
-
-    console.log( theme )
+    const { theme, setTheme } = useContext(ThemeContext)   
 
     return (
         <Nav>
             <div>
-                <img src="logopoke.png" alt="PokeAPI" />
+                <img src={logopoke} alt="Logo pokeAPI" />
             </div>
             
             <div>
@@ -32,7 +31,7 @@ export { Navbar }
 
 const Nav = styled.nav `    
     background-color: rgba(8,34,78,.9);
-    height: 180px;
+    height: 130px;
     width: 100%;
     display: flex;
     justify-content: space-between;

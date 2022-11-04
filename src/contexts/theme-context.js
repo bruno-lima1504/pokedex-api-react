@@ -17,7 +17,7 @@ export const themes = {
         backgroundbtn: '#eeeeee',        
         border: '8px solid #d5d5d5',
         boxshadow: '1px 1px 10px #d5d5d5',
-        btnText: 'Ligth mode',
+        btnText: 'light mode',
         colorBtn:'#000',
     }
 }
