@@ -18,7 +18,7 @@ const Navbar = () => {
             <div>
                 <ul>
                     <StyledLink to="/"><li>Pokedex</li></StyledLink>
-                    <li>Super Trunfo</li>
+                    <StyledLink to="/notfound"><li>Favoritos</li></StyledLink>
                     <Button onClick={() => setTheme(theme === themes.light ? themes.dark : themes.light)}></Button>
                 </ul>
             </div>                    

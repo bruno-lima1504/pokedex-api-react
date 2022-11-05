@@ -6,6 +6,7 @@ import { getPokemons, searchPokemons } from '../../api-podedex';
 import { SearchBar } from "../searchbar/searchbar";
 import { Navbar } from "../navbar/navbar";
 import { ThemeContext } from "../../contexts/theme-context";
+import { Footer } from "../footer/footer";
 
 
 
@@ -62,7 +63,8 @@ const Pokedex = () => {
                     )}
                     <Button text="ver mais" attPokemon={addPokemon} />
                     <Button text="ver menos" attPokemon={removePokemon} />
-                </Main>                            
+                </Main> 
+                <Footer />                           
         </>
     )
 }
