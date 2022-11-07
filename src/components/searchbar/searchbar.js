@@ -12,16 +12,33 @@ const SearchBar = () => {
         let pokeName = e.target.value.toLowerCase()        
         setSearch(pokeName)        
     }
-    
+
+    // const onChangeHandler2 = (e) => {
+    //     let pokeName = e.target.value.toLowerCase()
+    //     const key = e.which || e.keycode
+    //     const isEnterKeyPressed = key === 13
+
+    //     if(isEnterKeyPressed){
+    //         setSearch(pokeName)
+    //     }      
         
+    // }
+
     return (
         <SearchContainer>
             <input type="text" placeholder='Digite o pokemon' onChange={onChangeHandler} />
 
             <Link to={`/details/${search}`}>
-
             <Buttonstl background={theme.backgroundbtn} color={theme.colorBtn}>Procurar</Buttonstl>
-            </Link>            
+            </Link>
+
+            
+            {/* <SearchForm>
+                <input type="text"></input>
+                <Link to={`/details/${search}`}><input type="submit"></input></Link>
+            </SearchForm> */}
+            
+                        
         </SearchContainer>
     )
 }
@@ -30,7 +47,7 @@ export { SearchBar }
 
 const SearchContainer = styled.div `
     display: flex;
-    margin-top: 30px;
+    margin-top: 15px;
     padding: 0 20px;
     justify-content: center;
 
@@ -52,6 +69,9 @@ const Buttonstl = styled.button `
     padding: 10px;
     font-weight: 600;
     cursor: pointer;
+`
+const SearchForm = styled.form `
+
 `
 
 

@@ -21,7 +21,8 @@ export {App};
 
 const GlobalStyle = createGlobalStyle`
    * {font-family: 'Lato', sans-serif;
-  box-sizing: border-box;  
+  box-sizing: border-box; 
+  margin: 0; 
   padding: 0;}
     
 `

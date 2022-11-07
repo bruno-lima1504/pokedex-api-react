@@ -4,12 +4,15 @@ import { useParams } from "react-router-dom";
 import { searchPokemon } from "../../api";
 import {Navbar} from '../navbar/navbar';
 import { ThemeContext } from "../../contexts/theme-context";
+import { Rodape } from "../footer/footer";
 
 
 const Details = () => {    
     const { name } = useParams();
     const [pokemon, setPokemon] = useState();
     const { theme } = useContext(ThemeContext)
+
+    console.log(pokemon)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,11 +32,10 @@ const Details = () => {
     return (
         <>
         <Navbar />
-
         <ContainerDetails background={theme.background}>
         <DetailsCard border={theme.border}> 
 
-            {pokemon && (<DivName><h2>{pokemon.name}</h2></DivName>) }             
+            {pokemon ? (<DivName><h2>{pokemon.name}</h2></DivName>) : ( <MsgErro>Pokemon não existe!!</MsgErro>) }             
 
             {pokemon && (                
             <ImgDiv>
@@ -69,8 +71,9 @@ const Details = () => {
                     })}
                 </div>
             </InfoDiv>)}
-        </DetailsCard>
+        </DetailsCard>        
         </ContainerDetails>
+        <Rodape />
         </>
 
     )
@@ -81,7 +84,9 @@ export { Details }
 const ContainerDetails = styled.div `
 display: flex;
 width: 100%;
+height: 80vh;
 justify-content: center;
+align-items: center;
 background-color: ${props => props.background};
 `
 
@@ -90,8 +95,8 @@ const DetailsCard = styled.main`
     display: flex;
     flex-direction: column;
     width: 350px;
-    min-height: 530px;
-    align-items: center;
+    height: 530px;
+    align-items: center;    
     box-sizing: border-box;
     border: ${props => props.border};
     border-radius: 8px;
@@ -153,8 +158,16 @@ const DivName = styled.div `
               white-space: nowrap;
               
             }
+ `
+ const MsgErro = styled.div` 
+    margin-top: 30px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+
+`
  
-     `
     
 
 

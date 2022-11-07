@@ -82,14 +82,15 @@ const DivInfo = styled.div `
     div {
         width: 50%;
 
+
         img {
             width: 60%;
             filter: drop-shadow(0 0 0.4rem #fff)
         }
 
-        p {
+        p { 
+            margin-top: 15px;
             color: #000;
-
             font-weight: 600;
             padding: 5px;
             width: 70%;

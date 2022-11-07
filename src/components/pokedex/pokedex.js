@@ -6,7 +6,7 @@ import { getPokemons, searchPokemons } from '../../api-podedex';
 import { SearchBar } from "../searchbar/searchbar";
 import { Navbar } from "../navbar/navbar";
 import { ThemeContext } from "../../contexts/theme-context";
-import { Footer } from "../footer/footer";
+import { Rodape } from "../footer/footer"
 
 
 
@@ -63,8 +63,9 @@ const Pokedex = () => {
                     )}
                     <Button text="ver mais" attPokemon={addPokemon} />
                     <Button text="ver menos" attPokemon={removePokemon} />
+                    <Rodape />                 
                 </Main> 
-                <Footer />                           
+                                           
         </>
     )
 }
@@ -79,12 +80,13 @@ width: 100%;
     h1 {
         font-size: 60px;
         font-weight: 900;
-        color: ${props => props.color};
+        color: ${props => props.color};        
+        margin: 20px 0px;
     }
 `
 const ContainerPokedex = styled.div`
     display:grid;
-    grid-gap: 30px;
+    grid-gap: 25px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin: 0px 30px;
 
