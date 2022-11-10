@@ -10,24 +10,21 @@ import { Rodape } from "../footer/footer";
 const Details = () => {    
     const { name } = useParams();
     const [pokemon, setPokemon] = useState();
-    const { theme } = useContext(ThemeContext)
-
-    console.log(pokemon)
+    const { theme } = useContext(ThemeContext);
 
     useEffect(() => {
         const fetchData = async () => {
             const cathPokemon = async () => {
             const infos = await searchPokemon(name);
 
-            setPokemon(infos)
+            setPokemon(infos);
             }
-            cathPokemon(name)
+            cathPokemon(name);
         }     
 
-        fetchData()
+        fetchData();
             
-    },[name]);        
-        
+    },[name]);
 
     return (
         <>
@@ -76,7 +73,7 @@ const Details = () => {
         <Rodape />
         </>
 
-    )
+    );
 }
 
 export { Details }

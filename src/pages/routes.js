@@ -9,7 +9,7 @@ const AppRoutes = () => {
         <BrowserRouter>
             <Routes>  
                 <Route exact path='/' element={<Pokedex />} />                
-                <Route exact path='/details/:name' element={<Details />} />
+                <Route path='/details/:name' element={<Details />} />
                 <Route exact path='/notfound' element={<NotFound />} />
             </Routes>
         </BrowserRouter>

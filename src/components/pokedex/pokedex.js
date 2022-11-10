@@ -8,8 +8,6 @@ import { Navbar } from "../navbar/navbar";
 import { ThemeContext } from "../../contexts/theme-context";
 import { Rodape } from "../footer/footer"
 
-
-
 const Pokedex = () => {
 
     const { theme } = useContext(ThemeContext)
@@ -27,7 +25,7 @@ const Pokedex = () => {
       }
 
       useEffect(() => {   
-        cathLinks()  
+        cathLinks()
       }, [count])
   
       const addPokemon = () => {
@@ -38,20 +36,18 @@ const Pokedex = () => {
         {alert('Não é possivel remover mais pokemons')}      
         else
         {setCount(count - 10)}            
-      }         
-
-      
+      }   
 
     return (
         <> 
-                <Main background={theme.background} color={theme.color}>
-                    <Navbar />
-                    <SearchBar />                    
-                    <div>
-                        <h1>Pokedex</h1>
-                    </div>
-                    {pokemons.lenght > 0 ? (
-                        <div>carregando</div>
+            <Main background={theme.background} color={theme.color}>
+                <Navbar />
+                <SearchBar />                    
+                <div>
+                    <h1>Pokedex</h1>
+                </div>
+                {pokemons.lenght > 0 ? (
+                    <div>carregando</div>
                     ) : (
                         <ContainerPokedex>
                             {pokemons && pokemons.map((pokemons, index) => {
@@ -60,14 +56,13 @@ const Pokedex = () => {
                                 );  
                             })}
                         </ContainerPokedex>
-                    )}
-                    <Button text="ver mais" attPokemon={addPokemon} />
-                    <Button text="ver menos" attPokemon={removePokemon} />
-                    <Rodape />                 
-                </Main> 
-                                           
+                )};
+                <Button text="ver mais" attPokemon={addPokemon} />
+                <Button text="ver menos" attPokemon={removePokemon} />
+                <Rodape />                 
+            </Main>                                            
         </>
-    )
+    );
 }
 
 export { Pokedex }

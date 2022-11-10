@@ -20,5 +20,6 @@ const Buttonstyled = styled.button `
     border: none;
     border-radius: 5px;
     margin: 20px;
+    cursor: pointer;
 `
 

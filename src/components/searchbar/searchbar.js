@@ -1,44 +1,30 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ThemeContext } from "../../contexts/theme-context";
 
 const SearchBar = () => {  
 
-    const [search, setSearch] = useState("bulbasaur")
+    const [search, setSearch] = useState("")
     const { theme } = useContext(ThemeContext)
+    let navigate = useNavigate();
        
-    const onChangeHandler = (e) => {
+    const onChangeHandler = (e) => {       
         let pokeName = e.target.value.toLowerCase()        
         setSearch(pokeName)        
     }
 
-    // const onChangeHandler2 = (e) => {
-    //     let pokeName = e.target.value.toLowerCase()
-    //     const key = e.which || e.keycode
-    //     const isEnterKeyPressed = key === 13
-
-    //     if(isEnterKeyPressed){
-    //         setSearch(pokeName)
-    //     }      
-        
-    // }
+    const handleSubmit = (event) => {
+        event.preventDefault()        
+        navigate(`/details/${search}`);
+    }
 
     return (
-        <SearchContainer>
-            <input type="text" placeholder='Digite o pokemon' onChange={onChangeHandler} />
-
-            <Link to={`/details/${search}`}>
-            <Buttonstl background={theme.backgroundbtn} color={theme.colorBtn}>Procurar</Buttonstl>
-            </Link>
-
-            
-            {/* <SearchForm>
-                <input type="text"></input>
-                <Link to={`/details/${search}`}><input type="submit"></input></Link>
-            </SearchForm> */}
-            
-                        
+        <SearchContainer>            
+            <SearchForm onSubmit={handleSubmit}>
+                <input placeholder="Digite o nome do pokemon!"onChange={onChangeHandler}type="text"></input>
+                <ButtonStl background={theme.backgroundbtn} color={theme.colorBtn}>Procurar</ButtonStl>
+            </SearchForm>
         </SearchContainer>
     )
 }
@@ -50,27 +36,36 @@ const SearchContainer = styled.div `
     margin-top: 15px;
     padding: 0 20px;
     justify-content: center;
+`
 
-    Input {
+const ButtonStl = styled.button `
+    background-color: ${props => props.background};
+    color: ${props => props.color};
+    border: none;
+    border-radius: 5px;
+    height: 40px;    
+    padding: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+
+    :hover {
+            background-color: rgba(8,34,78,.9);
+        }
+`
+const SearchForm = styled.form `
+    display: flex;
+    justify-content: center;
+
+    input {
         padding: 10px;
+        width: 190px;
+        height: 40px;
         box-shadow: 0px 2px 2px (0, 0, 0, 0,25);
         margin-right: 25px;
         border-radius: 5px;
         border: 1px solid #000;        
     }
-`
-
-const Buttonstl = styled.button `
-    background-color: ${props => props.background};
-    color: ${props => props.color};
-    border: none;
-    border-radius: 5px;
-    height: 50px;    
-    padding: 10px;
-    font-weight: 600;
-    cursor: pointer;
-`
-const SearchForm = styled.form `
 
 `
 
