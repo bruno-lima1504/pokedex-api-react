@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Button } from "../button/button";
-import { Minicard } from "./minicard";
+import { Minicard } from "../minicard/minicard";
 import { getPokemons, searchPokemons } from '../../api-podedex';
 import { SearchBar } from "../searchbar/searchbar";
 import { Navbar } from "../navbar/navbar";

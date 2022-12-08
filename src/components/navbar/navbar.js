@@ -1,45 +1,40 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { Button } from './buttonnavbar';
 import { ThemeContext, themes } from '../../contexts/theme-context';
 import logopoke from '../../assets/logopoke.png'
 import * as C from './styles';
  
-const Navbar = () => {
+export const Navbar = () => {
     
     const { theme, setTheme } = useContext(ThemeContext)   
 
     return (
         <C.HeaderContainer>
-            
+            <div>        
                 <img src={logopoke} alt="Logo pokeAPI" />
-            
-            
-            
+            </div> 
+            <div>
                 <C.Ul>
-                    <C.Link to="/">
+                    <StyledLink to="/">
                         <C.Li>Pokedex</C.Li>
-                    </C.Link>
-                    <C.Link to="/notfound">
+                    </StyledLink>
+                    <StyledLink to="/notfound">
                         <C.Li>Favoritos</C.Li>
-                    </C.Link>
+                    </StyledLink>
                     <Button onClick={() => setTheme(theme === themes.light ? themes.dark : themes.light)}>
-
                     </Button>
                 </C.Ul>
-                               
-            
+            </div>
         </C.HeaderContainer>
     )
 }
 
-export { Navbar }
-
-
-/* const StyledLink = styled(Link) `
+  const StyledLink = styled(Link) `
     text-decoration: none;
 
     :visited {
         color: #FFF;
     }
-` */
+ ` 

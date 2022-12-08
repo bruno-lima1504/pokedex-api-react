@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 export const HeaderContainer = styled.nav `    
-    background-color: #fff;
-    height: 300px;
+    background-color: rgba(8,34,78,.9);
+    height: 120px;
     width: 100%;
     display: flex;
     justify-content: space-between;

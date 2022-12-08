@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Details } from '../components/details/details'
 import { Pokedex } from '../components/pokedex/pokedex'
-import { NotFound } from '../components/notfound/notfound'
+import { NotFound } from './notfound/notfound'
 
 
 const AppRoutes = () => {
