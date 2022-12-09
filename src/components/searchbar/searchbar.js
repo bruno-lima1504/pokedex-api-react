@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import styled from "styled-components";
 import { useNavigate } from 'react-router-dom'
 import { ThemeContext } from "../../contexts/theme-context";
 import * as C from './styles'

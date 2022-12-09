@@ -10,7 +10,7 @@ export const HeaderContainer = styled.nav `
     padding: 40px;  
     align-items: center;
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 0 auto;     
 
     @media (max-width: 700px){
         flex-direction: column;
@@ -18,14 +18,12 @@ export const HeaderContainer = styled.nav `
         padding: 20px;
         }
 `
-
 export const Ul = styled.ul `
        list-style: none;
        display: flex;
        width: 100%;
        align-items: center;       
 `
-
 export const Li = styled.li `
         background-color: #0e6f9f;        
         margin: 20px;
@@ -45,7 +43,6 @@ export const Li = styled.li `
             margin: 10px;
         }              
 `
-
 export const Link = styled.a `
     text-decoration: none;
 

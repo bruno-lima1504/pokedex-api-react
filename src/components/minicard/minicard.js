@@ -36,10 +36,11 @@ export const Minicard = ({pokemon}) => {
 
 const StyledLink = styled(Link) `
     text-decoration: none;
-    width: 100%;    
+    width: 100%; 
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;    
+    flex-direction: column;    
+    justify-content: center;
 
     :visited {
     color: #000;

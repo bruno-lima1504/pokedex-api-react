@@ -11,8 +11,7 @@ export const ContainerMiniCard = styled.main `
     max-width: 350px;
     height: 250px;
     border-radius: 8px;
-    box-shadow: ${props => props.boxshadow};    
-    padding: 10px;   
+    box-shadow: ${props => props.boxshadow}; 
 `
 export const Title = styled.h3 `
     color: #fff;  

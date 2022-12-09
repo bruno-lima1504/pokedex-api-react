@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Button } from "../button/button";
 import { Minicard } from "../minicard/minicard";
-import { getPokemons, searchPokemons } from '../../api-podedex';
+import { getPokemons, searchNumPokemons } from '../../api-podedex';
 import { SearchBar } from "../searchbar/searchbar";
 import { Navbar } from "../navbar/navbar";
 import { ThemeContext } from "../../contexts/theme-context";
@@ -15,7 +15,7 @@ const Pokedex = () => {
     const [count, setCount] = useState(10);  
       
       const cathLinks = async () => {        
-          const data = await searchPokemons(count);        
+          const data = await searchNumPokemons(count);        
           const promises = data.results.map( async (pokemon) => {            
             return await getPokemons(pokemon.url)          
           });
@@ -56,7 +56,7 @@ const Pokedex = () => {
                                 );  
                             })}
                         </ContainerPokedex>
-                )};
+                )}
                 <Button text="ver mais" attPokemon={addPokemon} />
                 <Button text="ver menos" attPokemon={removePokemon} />
                 <Rodape />                 

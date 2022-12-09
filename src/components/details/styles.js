@@ -13,7 +13,8 @@ export const DetailsCard = styled.main `
     display: flex;
     flex-direction: column;
     width: 350px;
-    height: 530px;
+    height: 95%;
+    max-height: 500px;
     align-items: center;    
     box-sizing: border-box;
     border: ${props => props.border};
@@ -69,5 +70,11 @@ export const MsgErro = styled.div `
     font-size: 32px;
     font-weight: 700;
     text-align: center;
+`
+
+export const DivError = styled.div `
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
 `
 
