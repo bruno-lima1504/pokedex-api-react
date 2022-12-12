@@ -5,7 +5,7 @@ import * as C from './styles'
 
 export const SearchBar = () => {  
 
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("bulbasaur")
     const { theme } = useContext(ThemeContext)
     let navigate = useNavigate();
        
@@ -22,8 +22,14 @@ export const SearchBar = () => {
     return (
         <C.Container>            
             <C.Form onSubmit={handleSubmit}>
-                <C.Input placeholder="Digite o nome do pokemon!"onChange={onChangeHandler}type="text"></C.Input>
-                <C.Button background={theme.backgroundbtn} color={theme.colorBtn}>Procurar</C.Button>
+                <C.Input 
+                placeholder="Digite o nome do pokemon!"onChange={onChangeHandler}
+                type="text"></C.Input>
+                <C.Button 
+                background={theme.backgroundbtn} 
+                color={theme.colorBtn}>
+                    Procurar
+                    </C.Button>
             </C.Form>
         </C.Container>
     )

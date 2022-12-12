@@ -1,18 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
+
 import { Button } from "../button/button";
 import { Minicard } from "../minicard/minicard";
-import { getPokemons, searchNumPokemons } from '../../api-podedex';
 import { SearchBar } from "../searchbar/searchbar";
 import { Navbar } from "../navbar/navbar";
+import { Rodape } from "../footer/footer";
+
+import { getPokemons, searchNumPokemons } from '../../api-podedex';
 import { ThemeContext } from "../../contexts/theme-context";
-import { Rodape } from "../footer/footer"
+
+import styled from "styled-components";
 
 const Pokedex = () => {
 
     const { theme } = useContext(ThemeContext)
     const [pokemons, setPokemons] = useState([]);
-    const [count, setCount] = useState(10);  
+    const [count, setCount] = useState(10); 
+    const [showElement, setShowElement] = useState(false)
+    const showOrHide = (boolean) => setShowElement(boolean)
+     
       
       const cathLinks = async () => {        
           const data = await searchNumPokemons(count);        
@@ -26,23 +32,27 @@ const Pokedex = () => {
 
       useEffect(() => {   
         cathLinks()
-      }, [count])
+      }, [count, showElement])
   
       const addPokemon = () => {
-        setCount(count + 10)      
+        setCount(count + 10) 
+        showOrHide(true)     
       } 
       const removePokemon = () => {
-        if(count === 10)
-        {alert('Não é possivel remover mais pokemons')}      
-        else
-        {setCount(count - 10)}            
-      }   
-
+        if(count === 20){
+            setCount(count - 10)
+            showOrHide(false)
+        } else {
+            setCount(count - 10)}            
+      } 
+      
     return (
         <> 
-            <Main background={theme.background} color={theme.color}>
-                <Navbar />
-                <SearchBar />                    
+            <Main 
+            background={theme.background} 
+            color={theme.color}>
+                <Navbar setBtn={false} />
+                <SearchBar />    
                 <div>
                     <h1>Pokedex</h1>
                 </div>
@@ -52,13 +62,21 @@ const Pokedex = () => {
                         <ContainerPokedex>
                             {pokemons && pokemons.map((pokemons, index) => {
                                 return (                           
-                                    <Minicard key={index} pokemon={pokemons} /> 
+                                    <Minicard 
+                                    key={index} 
+                                    pokemon={pokemons} /> 
                                 );  
                             })}
                         </ContainerPokedex>
                 )}
-                <Button text="ver mais" attPokemon={addPokemon} />
-                <Button text="ver menos" attPokemon={removePokemon} />
+                
+                {showElement ? 
+                <Button 
+                text="ver menos" 
+                attPokemon={removePokemon} /> : null}
+                <Button 
+                text="ver mais" 
+                attPokemon={addPokemon} />
                 <Rodape />                 
             </Main>                                            
         </>

@@ -1,20 +1,24 @@
 import styled from "styled-components";
+import fundo from "../../assets/background-details.jpg"
 
 export const ContainerDetails = styled.div `
     display: flex;
     width: 100%;
     height: 80vh;
+    min-height: 600px;
     justify-content: center;
     align-items: center;
-    background-color: ${props => props.background};
+    background: url(${fundo});
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 export const DetailsCard = styled.main `
     background: linear-gradient(330deg, rgba(255,255,255,1) 0%, rgba(0,0,0,0.8911939775910365) 100%);
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 95%;
-    max-height: 500px;
+    width: 350px;    
+    min-height: 500px;
+    max-height: 580px;
     align-items: center;    
     box-sizing: border-box;
     border: ${props => props.border};

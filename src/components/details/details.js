@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+
 import { searchNamePokemon } from "../../api-podedex";
 import {Navbar} from '../navbar/navbar';
-import { ThemeContext } from "../../contexts/theme-context";
 import { Rodape } from "../footer/footer";
-import * as C from './styles';
 import { SearchBar } from "../searchbar/searchbar";
+
+import { ThemeContext } from "../../contexts/theme-context";
+
+import * as C from './styles';
 
 export const Details = () => {    
     const { name } = useParams();
@@ -22,11 +25,11 @@ export const Details = () => {
 
     useEffect(() => { 
         fetchData()            
-    },[name]);
+    },[name]);     
 
     return (
         <>
-            <Navbar />        
+            <Navbar setBtn={true} />        
             <C.ContainerDetails background={theme.background}>
                 
                     {pokemon ? (
@@ -35,14 +38,17 @@ export const Details = () => {
 
                     <C.CardImgContainer>
                     
-                    <C.ImgCard src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default} alt={pokemon.name}></C.ImgCard>
+                    <C.ImgCard 
+                    src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default} 
+                    alt={pokemon.name}></C.ImgCard>
                     
                     </C.CardImgContainer> 
 
                     <C.CardInfoContainer>
                             {pokemon.types.map((type, index) => {
                                 return(
-                                    <C.InfoContent key={index}>{type.type.name}</C.InfoContent>
+                                    <C.InfoContent 
+                                    key={index}>{type.type.name}</C.InfoContent>
                                 )
                             })}                    
                         </C.CardInfoContainer>
@@ -50,7 +56,8 @@ export const Details = () => {
                         <C.InfoNames>Abilities:</C.InfoNames>
                         {pokemon.abilities.map((ability, index) => {
                                 return(
-                                    <C.InfoContent key={index}>{ability.ability.name}</C.InfoContent>
+                                    <C.InfoContent 
+                                    key={index}>{ability.ability.name}</C.InfoContent>
                                 )
                             })}
                         </C.CardInfoContainer>

@@ -14,7 +14,7 @@ const Button = ({text, attPokemon }) => {
     )
 }
 
-export {Button}
+export { Button }
 
 const Buttonstyled = styled.button `
     font-weight: 600;
